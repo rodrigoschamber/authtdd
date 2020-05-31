@@ -11,13 +11,13 @@ describe('Authentication', () => {
         const user = await User.create({
             name: 'Rodrigo',
             email: 'rodrigoschamber@gmail.com',
-            password_hash: 'password'
+            password: 'password'
         });
         const response = await request(app)
             .post('/sessions')
             .send({
                 email: user.email,
-                password: '123456'
+                password: 'password'
             });
         expect(response.status).toBe(200);
     });
